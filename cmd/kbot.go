@@ -47,14 +47,20 @@ to quickly create a Cobra application.`,
 			log.Print(m.Message().Payload, m.Text())
 			payload := m.Message().Payload
 
-			switch payload {
-			case "start":
-				return m.Send(fmt.Sprintf("Welcome! Type 'help' to see a list of commands"))
-			case "hello", "hi":
-				return m.Send(fmt.Sprintf("Hello I'm Kbot! 🤖 %s", AppVersion))
-			 default:
-        		return m.Send("Unknown command. Type 'help' for commands list.")
-			}
+			return err 
+
+			 switch text {
+            case "/start", "start":
+                return m.Send("👋 Welcome! Type 'help' to see a list of commands")
+            case "hello", "hi":
+                return m.Send(fmt.Sprintf("Hello I'm Kbot! 🤖 %s", AppVersion))
+            case "help":
+                return m.Send("Available commands: start, hello, help, version")
+            case "version":
+                return m.Send(fmt.Sprintf("Kbot version %s", AppVersion))
+            default:
+                return m.Send("Unknown command. Type 'help' for commands list.")
+            }
 		})
 
 		kbot.Start()
