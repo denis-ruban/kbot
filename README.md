@@ -36,3 +36,7 @@ Start the bot:
 - `/help` – list available commands  
 - `/version` – show current bot version  
 - `/echo <text>` – repeat back any text  
+---
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
